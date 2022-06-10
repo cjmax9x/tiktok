@@ -15,18 +15,7 @@ function App() {
                         } else if (item.layout === null) {
                             Layout = Fragment;
                         }
-                        const Page = item.component;
-                        return (
-                            <Route
-                                key={index}
-                                path={item.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            />
-                        );
+                        return <Route key={index} path={item.path} element={<Layout>{item.component}</Layout>} />;
                     })}
                 </Routes>
             </div>
