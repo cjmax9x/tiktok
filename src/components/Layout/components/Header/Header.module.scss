@@ -41,10 +41,12 @@
     position: absolute;
     right: calc(var(--search-btn) + 10px);
     color: #a7a7ab;
+    cursor: pointer;
 }
 .loading {
     position: absolute;
     color: #a7a7ab;
+    cursor: pointer;
     right: calc(var(--search-btn) + 10px);
 }
 .search-btn {
