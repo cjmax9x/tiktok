@@ -17,6 +17,7 @@ function Button({
     disabled,
     rightIcon,
     children,
+    className,
     onClick,
     ...passProps
 }) {
@@ -33,7 +34,6 @@ function Button({
             }
         });
     }
-    console.log(props);
     if (to) {
         props.to = to;
         Comp = Link;
@@ -42,6 +42,7 @@ function Button({
         Comp = 'a';
     }
     const classes = cx('wrapper', {
+        [className]: className,
         primary,
         small,
         large,
