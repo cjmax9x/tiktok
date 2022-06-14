@@ -29,7 +29,7 @@ function Menu({ children, items = [] }) {
     };
     return (
         <Tippy
-            offset={[-80, 12]}
+            offset={[-100, 12]}
             delay={[0, 700]}
             placement="bottom"
             interactive

@@ -27,6 +27,8 @@ import { Wrapper as ProperWrapper } from '../Proper';
 import AccountItem from '../AccountsItem';
 import Button from '../Button';
 import Menu from '../Menu';
+import { MessageIcon, InboxIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -130,15 +132,16 @@ function Header() {
                             <Button text leftIcon={<FontAwesomeIcon icon={faAdd} />}>
                                 Upload
                             </Button>
-                            <Tippy delay={[0, 200]} content="Message" placement="bottom">
+                            <Tippy interactive delay={[0, 200]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
-
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
-                            </button>
+                            <Tippy interactive delay={[0, 200]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon width="3.2rem" height="3.2rem" />
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
@@ -151,10 +154,11 @@ function Header() {
 
                     <Menu items={currentUser ? USER_MENU : MENU_ITEMS}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-logo')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7108922598557220869~c5_720x720.jpeg?x-expires=1655344800&x-signature=yJ7mUpuhMaNdqE6UPeuWZZmCqVc%3D"
                                 alt="Profile"
+                                fallback="https://scontent.fhan5-10.fna.fbcdn.net/v/t39.30808-6/282734922_2389691534505343_5924454303794117246_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=hjqBzESwhWoAX_5xcch&_nc_ht=scontent.fhan5-10.fna&oh=00_AT9S0dT190nX6ymmvhXkWYBbZ-F51RT5hW9noYkbqiB90w&oe=62AD4681"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

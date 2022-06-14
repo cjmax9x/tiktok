@@ -1,5 +1,7 @@
 .menu-list {
     width: 224px;
+    height: 295px;
+
     .menu-item {
         margin-left: 0px;
     }
@@ -11,7 +13,7 @@
 .menu-item {
     width: 100%;
     border-radius: 0;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 2.4rem;
     justify-content: flex-start;
     &:hover {
