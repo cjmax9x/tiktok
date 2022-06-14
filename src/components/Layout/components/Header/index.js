@@ -27,7 +27,7 @@ import { Wrapper as ProperWrapper } from '../Proper';
 import AccountItem from '../AccountsItem';
 import Button from '../Button';
 import Menu from '../Menu';
-import { MessageIcon, InboxIcon } from '~/components/Icons';
+import { MessageIcon, InboxIcon, SearchButton } from '~/components/Icons';
 import Image from '~/components/Images';
 const cx = classNames.bind(styles);
 
@@ -121,7 +121,7 @@ function Header() {
                         </button>
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchButton width="24px" height="24px" />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -140,6 +140,7 @@ function Header() {
                             <Tippy interactive delay={[0, 200]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon width="3.2rem" height="3.2rem" />
+                                    <span className={cx('prop')}>12</span>
                                 </button>
                             </Tippy>
                         </>

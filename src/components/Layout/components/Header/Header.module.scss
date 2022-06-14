@@ -110,4 +110,15 @@
     padding: 6px;
     margin-left: 10px;
     cursor: pointer;
+    position: relative;
+}
+.prop {
+    position: absolute;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 1.2rem;
+    top: -4%;
+    right: -20%;
 }
