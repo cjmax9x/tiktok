@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as ProperWrapper } from '../Proper';
 import classNames from 'classnames/bind';
-import axios from 'axios';
 
+import * as searchServices from '~/apiServices/searchService';
 import styles from './SearchComp.module.scss';
 import AccountItem from '../AccountsItem';
 import { SearchButton } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
+import { faSlack } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -28,24 +29,19 @@ function Search() {
         }
 
         setShowLoading(true);
-        axios
-            .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
-                params: {
-                    q: debounced,
-                    type: 'less',
-                },
-            })
-            .then((api) => {
-                setSearchResult(api.data.data);
-                setShowLoading(false);
-            })
-            .catch(() => {
-                setShowLoading(false);
-            });
+
+        const fetchApi = async () => {
+            const result = await searchServices.Search(debounced);
+            setSearchResult(result);
+
+            setShowLoading(false);
+        };
+        fetchApi();
     }, [debounced]);
     const handleHide = () => {
         setShowResult(false);
     };
+
     return (
         <HeadlessTippy
             interactive
