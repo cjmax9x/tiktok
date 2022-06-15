@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as ProperWrapper } from '../Proper';
 import classNames from 'classnames/bind';
+import axios from 'axios';
+
 import styles from './SearchComp.module.scss';
 import AccountItem from '../AccountsItem';
 import { SearchButton } from '~/components/Icons';
@@ -26,11 +28,18 @@ function Search() {
         }
 
         setShowLoading(true);
-
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((response) => response.json())
+        axios
+            .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
             .then((api) => {
-                setSearchResult(api.data);
+                setSearchResult(api.data.data);
+                setShowLoading(false);
+            })
+            .catch(() => {
                 setShowLoading(false);
             });
     }, [debounced]);
