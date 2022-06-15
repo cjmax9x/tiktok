@@ -37,7 +37,7 @@ export const SearchButton = ({ className, width = '2.6rem', height = '2.6rem' })
         width={width}
         height={height}
         viewBox="0 0 48 48"
-        fill="rgba(22, 24, 35, 0.34)"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
