@@ -7,7 +7,7 @@ import classNames from 'classnames/bind';
 import styles from './SearchComp.module.scss';
 import AccountItem from '../AccountsItem';
 import { SearchButton } from '~/components/Icons';
-
+import { useDebounce } from '~/hooks';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -17,21 +17,23 @@ function Search() {
     const [showLoading, setShowLoading] = useState(false);
 
     const inputRef = useRef();
+    const debounced = useDebounce(inputResult, 500);
+
     useEffect(() => {
-        if (!inputResult.trim()) {
+        if (!debounced.trim()) {
             setSearchResult([]);
             return;
         }
 
         setShowLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(inputResult)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
             .then((response) => response.json())
             .then((api) => {
                 setSearchResult(api.data);
                 setShowLoading(false);
             });
-    }, [inputResult]);
+    }, [debounced]);
     const handleHide = () => {
         setShowResult(false);
     };
