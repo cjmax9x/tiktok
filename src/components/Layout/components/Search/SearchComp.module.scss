@@ -11,6 +11,11 @@
     padding: 0 0 0 16px;
     background: rgba(22, 24, 35, 0.06);
     border-radius: 92px;
+    border: 1.5px solid transparent;
+    overflow: hidden;
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
     input {
         flex: 1;
         height: 100%;
@@ -18,6 +23,8 @@
         color: var(--black);
         font-size: 1.6rem;
         caret-color: var(--primary);
+        font-family: var(--font-family);
+        font-weight: 400;
     }
     input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);

@@ -9,6 +9,7 @@
     --border-radius: 92px;
     --white: #fff;
     --default-layout-spacer: 24px;
+    --font-family: 'ProximaNova', sans-serif;
 }
 
 * {
@@ -20,7 +21,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
