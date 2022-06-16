@@ -93,17 +93,21 @@ function Header() {
                             <Button text leftIcon={<FontAwesomeIcon icon={faAdd} />}>
                                 Upload
                             </Button>
-                            <Tippy interactive delay={[0, 200]} content="Message" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <MessageIcon />
-                                </button>
-                            </Tippy>
-                            <Tippy interactive delay={[0, 200]} content="Inbox" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <InboxIcon width="3.2rem" height="3.2rem" />
-                                    <span className={cx('prop')}>12</span>
-                                </button>
-                            </Tippy>
+                            <div>
+                                <Tippy interactive delay={[0, 200]} content="Message" placement="bottom">
+                                    <button className={cx('action-btn')}>
+                                        <MessageIcon />
+                                    </button>
+                                </Tippy>
+                            </div>
+                            <div>
+                                <Tippy interactive delay={[0, 200]} content="Inbox" placement="bottom">
+                                    <button className={cx('action-btn')}>
+                                        <InboxIcon width="3.2rem" height="3.2rem" />
+                                        <span className={cx('prop')}>12</span>
+                                    </button>
+                                </Tippy>
+                            </div>
                         </>
                     ) : (
                         <>

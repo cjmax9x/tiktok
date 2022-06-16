@@ -35,6 +35,9 @@ function Menu({ hideOnClick = false, children, items = [] }) {
                 offset={[12, 8]}
                 hideOnClick={hideOnClick}
                 placement="bottom-end"
+                onHide={() => {
+                    setHistory((prev) => prev.slice(0, 1));
+                }}
                 render={(attrs) => (
                     <div className={cx('menu-list')} tabIndex="0" {...attrs}>
                         <ProperWrapper custom={cx('menu-proper')}>
@@ -50,9 +53,6 @@ function Menu({ hideOnClick = false, children, items = [] }) {
                         </ProperWrapper>
                     </div>
                 )}
-                onHide={() => {
-                    setHistory((prev) => prev.slice(0, 1));
-                }}
             >
                 {children}
             </Tippy>

@@ -58,6 +58,7 @@ function Search() {
         <div>
             <HeadlessTippy
                 interactive
+                placement="bottom"
                 visible={showResult && searchResult.length > 0}
                 onClickOutside={handleHide}
                 render={(attrs) => (
