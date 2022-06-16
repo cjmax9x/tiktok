@@ -5,7 +5,7 @@ import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as ProperWrapper } from '../Proper';
 import classNames from 'classnames/bind';
 
-import * as searchServices from '~/apiServices/searchService';
+import * as searchServices from '~/services/searchService';
 import styles from './SearchComp.module.scss';
 import AccountItem from '../AccountsItem';
 import { SearchButton } from '~/components/Icons';
