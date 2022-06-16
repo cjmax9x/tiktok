@@ -1,6 +1,5 @@
 .menu-list {
     width: 224px;
-    height: 295px;
 
     .menu-item {
         margin-left: 0px;
@@ -13,7 +12,7 @@
 .menu-item {
     width: 100%;
     border-radius: 0;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 2.4rem;
     justify-content: flex-start;
     &:hover {
@@ -28,6 +27,10 @@
     position: relative;
     margin-top: -8px;
     cursor: pointer;
+    flex-shrink: 0;
+}
+.menu-body {
+    overflow-y: auto;
 }
 .back-btn {
     width: 50px;

@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import { Wrapper as ProperWrapper } from '../Proper';
 import MenuItem from './MenuItem';
-import Header from './Header';
+import HeaderMenu from './Header';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -28,33 +28,35 @@ function Menu({ hideOnClick = false, children, items = [] }) {
         });
     };
     return (
-        <Tippy
-            offset={[-100, 12]}
-            delay={[0, 700]}
-            placement="bottom"
-            hideOnClick={hideOnClick}
-            interactive
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <ProperWrapper custom={cx('menu-proper')}>
-                        {history.length > 1 && (
-                            <Header
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                                title="Language"
-                            />
-                        )}
-                        {renderItem()}
-                    </ProperWrapper>
-                </div>
-            )}
-            onHide={() => {
-                setHistory((prev) => prev.slice(0, 1));
-            }}
-        >
-            {children}
-        </Tippy>
+        <div>
+            <Tippy
+                interactive
+                delay={[0, 700]}
+                offset={[12, 8]}
+                hideOnClick={hideOnClick}
+                placement="bottom-end"
+                render={(attrs) => (
+                    <div className={cx('menu-list')} tabIndex="0" {...attrs}>
+                        <ProperWrapper custom={cx('menu-proper')}>
+                            {history.length > 1 && (
+                                <HeaderMenu
+                                    title="Language"
+                                    onBack={() => {
+                                        setHistory((prev) => prev.slice(0, prev.length - 1));
+                                    }}
+                                />
+                            )}
+                            <div className={cx('menu-body')}>{renderItem()}</div>
+                        </ProperWrapper>
+                    </div>
+                )}
+                onHide={() => {
+                    setHistory((prev) => prev.slice(0, 1));
+                }}
+            >
+                {children}
+            </Tippy>
+        </div>
     );
 }
 

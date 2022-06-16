@@ -35,6 +35,9 @@
     color: rgba(22, 24, 35, 0.5);
     font-size: 1.4rem;
 }
+.account-body {
+    overflow-y: auto;
+}
 .clear {
     position: absolute;
     right: calc(var(--search-btn) + 10px);

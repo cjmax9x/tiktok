@@ -5,7 +5,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Header({ title, onBack }) {
+function HeaderMenu({ title, onBack }) {
     return (
         <header className={cx('header')}>
             <button onClick={onBack} className={cx('back-btn')}>
@@ -16,4 +16,4 @@ function Header({ title, onBack }) {
     );
 }
 
-export default Header;
+export default HeaderMenu;
