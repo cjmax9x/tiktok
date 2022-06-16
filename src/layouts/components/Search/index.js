@@ -10,7 +10,6 @@ import styles from './SearchComp.module.scss';
 import AccountItem from '../AccountsItem';
 import { SearchButton } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
-import { faSlack } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
 
 function Search() {

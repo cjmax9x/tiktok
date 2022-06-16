@@ -32,7 +32,7 @@ function Menu({ hideOnClick = false, children, items = [] }) {
             <Tippy
                 interactive
                 delay={[0, 700]}
-                offset={[12, 8]}
+                offset={[12, 16]}
                 hideOnClick={hideOnClick}
                 placement="bottom-end"
                 onHide={() => {
@@ -43,7 +43,7 @@ function Menu({ hideOnClick = false, children, items = [] }) {
                         <ProperWrapper custom={cx('menu-proper')}>
                             {history.length > 1 && (
                                 <HeaderMenu
-                                    title="Language"
+                                    title={current.title}
                                     onBack={() => {
                                         setHistory((prev) => prev.slice(0, prev.length - 1));
                                     }}
