@@ -38,9 +38,10 @@
     }
 }
 .outline {
-    border-color: var(--primary);
+    color: var(--primary);
+    border-color: currentColor;
     &:hover {
-        border-color: var(--primary);
+        background-color: rgba(254, 44, 85, 0.06);
     }
 }
 
