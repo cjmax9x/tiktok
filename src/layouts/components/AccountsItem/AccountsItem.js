@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Images from '~/components/Images';
-import style from './AccountItem.module.scss';
-const cx = classNames.bind(style);
+import styles from './AccountItem.module.scss';
+const cx = classNames.bind(styles);
 
 function AccountItem({ data }) {
     return (

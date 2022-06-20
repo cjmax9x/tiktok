@@ -15,11 +15,13 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [inputResult, setInputResult] = useState('');
+    const [debounced, setDebounced] = useState('');
     const [showResult, setShowResult] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
 
     const inputRef = useRef();
-    const debounced = useDebounce(inputResult, 500);
+    // const debounced = useDebounce(inputResult, 500);
+    useDebounce(inputResult, 500, setDebounced);
 
     useEffect(() => {
         if (!debounced.trim()) {
@@ -97,7 +99,7 @@ function Search() {
                         </button>
                     )}
 
-                    {showLoading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    {!!showLoading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                     <button className={cx('search-btn')} onMouseDown={handleMounseDown}>
                         <SearchButton width="24px" height="24px" />
                     </button>

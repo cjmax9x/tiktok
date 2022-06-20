@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import style from './MenuSidebar.module.scss';
+import styles from './MenuSidebar.module.scss';
 
-const cx = classNames.bind(style);
+const cx = classNames.bind(styles);
 function MenuSidebarItem({ to, title, icon, activeIcon }) {
     return (
         <NavLink className={(nav) => cx('item', { active: nav.isActive })} to={to}>
